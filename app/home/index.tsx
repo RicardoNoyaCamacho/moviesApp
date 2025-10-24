@@ -1,4 +1,4 @@
-import MainSlideShow from '@/presentation/components/MainSlideShow'
+import MainSlideShow from '@/presentation/components/movies/MainSlideShow'
 import { useMovies } from '@/presentation/hooks/useMovies'
 import React from 'react'
 import { ActivityIndicator, Text, View } from 'react-native'
@@ -19,7 +19,7 @@ const HomeScreen = () => {
 
     return (
         <View className='mt-2' style={{ paddingTop: safeArea.top }}>
-            <Text className='text-3xl font-bold px-4 mb-2'>HomeScreen</Text>
+            <Text className='text-3xl font-bold px-4 mb-2'>Movies App</Text>
 
             {/* Carousel de imagenes */}
             <MainSlideShow movies={nowPlayingQuery.data ?? []} />
