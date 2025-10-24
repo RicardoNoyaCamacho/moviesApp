@@ -2,10 +2,10 @@ import { movieApi } from "@/core/api/movie-api";
 import { MovieDBMoviesResponse } from "@/infrastructure/interfaces/moviedb.response";
 import { MovieMapper } from "@/infrastructure/mappers/movie.mapper";
 
-export const popularAction = async () => {
+export const upcomingAction = async () => {
     try {
 
-        const { data } = await movieApi.get<MovieDBMoviesResponse>('/popular');
+        const { data } = await movieApi.get<MovieDBMoviesResponse>('/upcoming');
 
         // console.log(data.results);
 
@@ -15,6 +15,6 @@ export const popularAction = async () => {
 
     } catch (error) {
         console.log(error);
-        throw 'Cannot load popular movies';
+        throw 'Cannot load upcoming movies';
     }
 }
