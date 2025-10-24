@@ -1,4 +1,5 @@
 import MainSlideShow from '@/presentation/components/movies/MainSlideShow'
+import MovieHorizontalList from '@/presentation/components/movies/MovieHorizontalList'
 import { useMovies } from '@/presentation/hooks/useMovies'
 import React from 'react'
 import { ActivityIndicator, Text, View } from 'react-native'
@@ -7,7 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 const HomeScreen = () => {
 
     const safeArea = useSafeAreaInsets();
-    const { nowPlayingQuery } = useMovies();
+    const { nowPlayingQuery, popularQuery } = useMovies();
 
     if (nowPlayingQuery.isLoading) {
         return (
@@ -23,6 +24,9 @@ const HomeScreen = () => {
 
             {/* Carousel de imagenes */}
             <MainSlideShow movies={nowPlayingQuery.data ?? []} />
+
+            {/* Popular */}
+            <MovieHorizontalList movies={popularQuery.data ?? []} title='Populares' />
         </View>
     )
 }
